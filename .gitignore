@@ -1,0 +1,8 @@
+node_modules/
+notes.txt
+source.zip
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
