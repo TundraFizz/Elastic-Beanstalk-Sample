@@ -1,0 +1,9 @@
+set PATH=%PATH%;"C:\Program Files (x86)\AWS-ElasticBeanstalk-CLI-2.6.5\eb\windows"
+set AWS_CREDENTIAL_FILE="C:\Users\leif.coleman\Desktop\Git\a.txt"
+
+cls && eb init --aws-credential-file "C:\Users\leif.coleman\Desktop\Git\a.txt" --region us-west-2 --verbose
+
+AKIAJNDGTP3CGIYFVM4A
+e+cpiCGztMC+WLxv4QcdY3maLdWF4S+Dr+II4zU9
+
+eb init --aws-credential-file "./keys" --region us-west-2

@@ -1,6 +1,4 @@
-node_modules/
-notes.txt
-source.zip
+node_modules
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

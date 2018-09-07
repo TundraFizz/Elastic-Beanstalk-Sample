@@ -1,41 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
+var express    = require("express");              // Express
+var bodyParser = require("body-parser");          // Allows you to read POST data
+var sass       = require("node-sass-middleware"); // SASS
+var app        = module.exports = express();      // Define the application
+app.set("views", "./views");                      // Define the views directory
+app.use(express.static("./static"));              // Define the static directory
+app.use(bodyParser.urlencoded({extended: true})); // Setting for bodyParser
+app.use(sass({src:   __dirname + "/static/css/sass",
+              dest:  __dirname + "/static/css",
+              prefix: "/css",
+              outputStyle: "compressed"}));
+require("./node/routes.js");                      // Include web routes third
+app.listen(8081);                                 // Start the server
